@@ -1,201 +1,421 @@
 <!DOCTYPE html>
-
 <html lang="el">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="theme-color" content="#100b19">
+<meta name="description" content="Η επίσημη ιστοσελίδα της LEGRENA FC. Νέα, αποτελέσματα, βαθμολογία, ρόστερ και στατιστικά.">
 <title>LEGRENA FC | Official Website</title>
 
 <style>
-
+:root {
+--bg: #100b19;
+--panel: #1d1429;
+--purple: #8b5cf6;
+--light: #c4a5ff;
+--white: #ffffff;
+--muted: #aaa0b8;
+}
 * { box-sizing: border-box; }
-
+html { scroll-behavior: smooth; }
 body {
-
-  margin: 0;
-
-  font-family: Arial, sans-serif;
-
-  background: #100d19;
-
-  color: white;
-
+margin: 0;
+background: var(--bg);
+color: var(--white);
+font-family: Arial, sans-serif;
 }
-
 header {
-
-  background: #211437;
-
-  text-align: center;
-
-  padding: 35px 15px;
-
-  border-bottom: 3px solid #8b5cf6;
-
+padding: 30px 15px;
+text-align: center;
+background: linear-gradient(135deg,#28143f,#100b19);
+border-bottom: 2px solid var(--purple);
 }
-
+.crest {
+width: 85px;
+height: 85px;
+margin: auto;
+border: 2px solid var(--light);
+border-radius: 50%;
+display: grid;
+place-items: center;
+font-size: 25px;
+font-weight: bold;
+color: var(--light);
+background: #211437;
+}
 header h1 {
-
-  color: #c4a5ff;
-
-  letter-spacing: 3px;
-
-  margin-bottom: 5px;
-
+color: var(--light);
+letter-spacing: 4px;
+margin-bottom: 5px;
 }
-
+header p {
+color: var(--muted);
+letter-spacing: 2px;
+font-size: 12px;
+}
 nav {
-
-  display: flex;
-
-  justify-content: center;
-
-  flex-wrap: wrap;
-
-  gap: 20px;
-
-  padding: 16px;
-
-  background: #181222;
-
+position: sticky;
+top: 0;
+z-index: 10;
+background: #171020;
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 8px;
+padding: 13px 8px;
+border-bottom: 1px solid #39264f;
 }
-
-nav a { color: white; text-decoration: none; }
-
+nav a {
+color: white;
+text-decoration: none;
+font-size: 13px;
+padding: 9px 11px;
+border-radius: 6px;
+}
+nav a:hover { background: var(--purple); }
 .hero {
-
-  text-align: center;
-
-  padding: 55px 15px;
-
-  background: linear-gradient(135deg,#301b50,#100d19);
-
+text-align: center;
+padding: 75px 18px;
+background:
+radial-gradient(ellipse at center,#49256e 0%,#21132f 45%,#100b19 100%);
 }
-
-.hero h2 { font-size: 32px; }
-
+.hero .tag {
+color: var(--light);
+letter-spacing: 3px;
+font-size: 12px;
+}
+.hero h2 {
+font-size: clamp(32px,7vw,58px);
+margin: 15px 0;
+letter-spacing: 3px;
+}
+.hero p { color: #ddd3e8; }
+.btn {
+display: inline-block;
+margin-top: 15px;
+padding: 13px 22px;
+background: var(--purple);
+color: white;
+text-decoration: none;
+border-radius: 7px;
+font-weight: bold;
+}
 section {
-
-  max-width: 900px;
-
-  margin: 25px auto;
-
-  padding: 25px;
-
-  background: #211a2d;
-
-  border-radius: 12px;
-
+max-width: 1050px;
+margin: 35px auto;
+padding: 25px;
 }
-
-h2 { color: #c4a5ff; }
-
-.stat {
-
-  display: inline-block;
-
-  background: #35234d;
-
-  padding: 15px;
-
-  margin: 5px;
-
-  border-radius: 8px;
-
+.section-title {
+color: var(--light);
+font-size: 25px;
+border-left: 4px solid var(--purple);
+padding-left: 13px;
+margin-bottom: 22px;
 }
-
+.panel {
+background: var(--panel);
+border: 1px solid #39264f;
+border-radius: 12px;
+padding: 22px;
+}
+.grid {
+display: grid;
+grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+gap: 15px;
+}
+.stat-card {
+background: var(--panel);
+border: 1px solid #39264f;
+padding: 22px;
+text-align: center;
+border-radius: 10px;
+}
+.stat-card strong {
+display: block;
+color: var(--light);
+font-size: 30px;
+margin-top: 8px;
+}
+.match {
+text-align: center;
+background: linear-gradient(135deg,#35204d,#1b1426);
+border: 1px solid var(--purple);
+border-radius: 12px;
+padding: 25px;
+}
+.match h3 { color: var(--light); }
+.match .teams {
+font-size: 23px;
+font-weight: bold;
+margin: 22px 0;
+}
+.table-wrap { overflow-x: auto; }
+table {
+width: 100%;
+border-collapse: collapse;
+min-width: 500px;
+}
+th, td {
+padding: 13px 10px;
+text-align: center;
+border-bottom: 1px solid #40314e;
+}
+th {
+color: var(--light);
+background: #2b1b3d;
+font-size: 13px;
+}
+td { font-size: 14px; }
+.highlight {
+background: #432765;
+font-weight: bold;
+}
+.player {
+background: var(--panel);
+padding: 17px;
+border-radius: 10px;
+border: 1px solid #39264f;
+display: flex;
+align-items: center;
+gap: 13px;
+}
+.number {
+color: var(--light);
+font-size: 23px;
+font-weight: bold;
+min-width: 38px;
+}
+.player small { color: var(--muted); }
+.empty {
+text-align: center;
+color: var(--muted);
+padding: 22px;
+}
 footer {
-
-  text-align: center;
-
-  padding: 25px;
-
-  color: #aaa;
-
+text-align: center;
+padding: 30px 15px;
+background: #171020;
+border-top: 2px solid var(--purple);
+color: var(--muted);
+font-size: 13px;
 }
-
+footer strong { color: var(--light); }
+@media(max-width:600px) {
+section { padding: 18px 13px; }
+nav { gap: 2px; }
+nav a { font-size: 11px; padding: 9px 7px; }
+.hero { padding: 55px 12px; }
+}
 </style>
-
 </head>
 
 <body>
 
 <header>
-
+<img src="logo.jpeg" alt="LEGRENA FC"
+style="width:180px;height:120px;object-fit:contain;display:block;margin:auto;">
 <h1>LEGRENA FC</h1>
-
 <p>EST. 2025 | OFFICIAL WEBSITE</p>
-
 </header>
 
 <nav>
-
 <a href="#home">Αρχική</a>
-
+<a href="#news">Νέα</a>
 <a href="#team">Ρόστερ</a>
-
 <a href="#results">Αποτελέσματα</a>
-
 <a href="#standings">Βαθμολογία</a>
-
 <a href="#scorers">Σκόρερ</a>
-
 </nav>
 
 <div class="hero" id="home">
-
-<h2>WELCOME TO LEGRENA FC</h2>
-
-<p>ONE TEAM. ONE FAMILY. ONE DREAM.</p>
-
-<p>Η επίσημη ιστοσελίδα της ομάδας μας.</p>
-
+<div class="tag">STAR SPORT CLUB MASTER LEAGUE 7x7</div>
+<h2>LEGRENA FC</h2>
+<p>ΜΙΑ ΟΜΑΔΑ. ΜΙΑ ΟΙΚΟΓΕΝΕΙΑ. ΕΝΑ ΟΝΕΙΡΟ.</p>
+<a class="btn" href="#team">ΓΝΩΡΙΣΕ ΤΗΝ ΟΜΑΔΑ</a>
 </div>
 
+<section>
+<h2 class="section-title">Η ΟΜΑΔΑ ΜΑΣ</h2>
+<div class="grid">
+<div class="stat-card">
+<span>ΙΔΡΥΣΗ</span>
+<strong>2025</strong>
+</div>
+<div class="stat-card">
+<span>ΔΙΟΡΓΑΝΩΣΗ</span>
+<strong>7x7</strong>
+</div>
+<div class="stat-card">
+<span>ΕΔΡΑ</span>
+<strong>STAR SPORT CLUB</strong>
+</div>
+</div>
+</section>
+
+<section id="news">
+<h2 class="section-title">ΤΑ ΝΕΑ ΜΑΣ</h2>
+<div class="panel">
+<h3>Καλώς ήρθατε στην επίσημη ιστοσελίδα μας!</h3>
+<p>Εδώ θα βρίσκετε όλα τα νέα της LEGRENA FC, τις ανακοινώσεις και την πορεία της ομάδας μας.</p>
+</div>
+</section>
+
 <section id="team">
-
-<h2>ΤΟ ΡΟΣΤΕΡ ΜΑΣ</h2>
-
-<p>Τερματοφύλακες, αμυντικοί, μέσοι και επιθετικοί της LEGRENA FC.</p>
-
-<p>Περισσότερα στοιχεία παικτών σύντομα.</p>
-
+<h2 class="section-title">ΤΟ ΡΟΣΤΕΡ ΜΑΣ</h2>
+<div id="roster" class="grid"></div>
 </section>
 
 <section id="results">
-
-<h2>ΑΠΟΤΕΛΕΣΜΑΤΑ</h2>
-
-<p>Τα αποτελέσματα των αγώνων μας θα ανακοινώνονται εδώ.</p>
-
+<h2 class="section-title">ΑΠΟΤΕΛΕΣΜΑΤΑ</h2>
+<div id="results-list" class="grid"></div>
 </section>
 
 <section id="standings">
-
-<h2>ΒΑΘΜΟΛΟΓΙΑ</h2>
-
-<p>Η βαθμολογία του πρωταθλήματος θα εμφανίζεται εδώ.</p>
-
+<h2 class="section-title">ΒΑΘΜΟΛΟΓΙΑ ΠΡΩΤΑΘΛΗΜΑΤΟΣ</h2>
+<div class="panel table-wrap">
+<table>
+<thead>
+<tr>
+<th>ΘΕΣΗ</th>
+<th>ΟΜΑΔΑ</th>
+<th>ΑΓ.</th>
+<th>Ν</th>
+<th>Ι</th>
+<th>Η</th>
+<th>ΓΚΟΛ</th>
+<th>ΒΑΘ.</th>
+</tr>
+</thead>
+<tbody id="standings-list"></tbody>
+</table>
+<p id="standings-empty" class="empty"></p>
+</div>
 </section>
 
 <section id="scorers">
+<h2 class="section-title">ΠΡΩΤΟΙ ΣΚΟΡΕΡ</h2>
+<div class="panel table-wrap">
+<table>
+<thead>
+<tr>
+<th>ΘΕΣΗ</th>
+<th>ΠΑΙΚΤΗΣ</th>
+<th>ΓΚΟΛ</th>
+</tr>
+</thead>
+<tbody id="scorers-list"></tbody>
+</table>
+<p id="scorers-empty" class="empty"></p>
+</div>
+</section>
 
-<h2>ΠΡΩΤΟΙ ΣΚΟΡΕΡ</h2>
-
-<p>Στατιστικά και γκολ παικτών της ομάδας.</p>
-
+<section>
+<h2 class="section-title">ΕΠΙΚΟΙΝΩΝΙΑ</h2>
+<div class="panel">
+<p>Ακολουθήστε τη LEGRENA FC στα social media για νέα, φωτογραφίες και βίντεο από τους αγώνες μας.</p>
+<p>Instagram: <a href="https://www.instagram.com/" target="_blank" style="color:#c4a5ff">LEGRENA FC</a></p>
+</div>
 </section>
 
 <footer>
-
+<strong>LEGRENA FC</strong>
+<p>EST. 2025</p>
 <p>© 2026 LEGRENA FC | ALL RIGHTS RESERVED</p>
-
 </footer>
 
-</body>
+<script>
+// =====================================
+// ΕΔΩ ΘΑ ΕΝΗΜΕΡΩΝΕΙΣ ΤΑ ΣΤΟΙΧΕΙΑ ΤΗΣ ΟΜΑΔΑΣ
+// =====================================
 
+const roster = [
+{ number: 69, name: "Διζικιρίκης", role: "Τερματοφύλακας" },
+{ number: 1, name: "Μπουρμπούλης", role: "Τερματοφύλακας" },
+{ number: 11, name: "Σκούρτης", role: "Αμυντικός" },
+{ number: 15, name: "Χαχλάκης", role: "Αμυντικός" },
+{ number: 5, name: "Νίτσος", role: "Αμυντικός" },
+{ number: 77, name: "Κλώσσας", role: "Αμυντικός" },
+{ number: 31, name: "Αντωνάκος", role: "Αμυντικός" },
+{ number: 23, name: "Τσούνης", role: "Αμυντικός" },
+{ number: 17, name: "Ναδάλης", role: "Μέσος" },
+{ number: 10, name: "Γκούρας", role: "Μέσος" },
+{ number: 4, name: "Χατζηαντωνίου", role: "Μέσος" },
+{ number: 8, name: "Ανδριτσάνος", role: "Μέσος" },
+{ number: 34, name: "Νταρζάνος", role: "Μέσος" },
+{ number: 99, name: "Μπαλτάς", role: "Επιθετικός" },
+{ number: 7, name: "Μωραΐτης", role: "Επιθετικός" },
+{ number: 14, name: "Σαρλάνης", role: "Επιθετικός" },
+{ number: 9, name: "Ντούνας", role: "Επιθετικός" }
+];
+
+// Συμπλήρωσε εδώ τους επόμενους αγώνες/αποτελέσματα.
+// Παράδειγμα: { opponent: "ΦΛΑΠ FC", score: "3 - 2", date: "21/10/2026", status: "ΝΙΚΗ" }
+const results = [
+{ opponent: "ΦΛΑΠ FC", score: "3 - 2", date: "Αποτέλεσμα", status: "ΝΙΚΗ" }
+];
+
+// Πρόσθεσε τις ομάδες και τα πραγματικά στοιχεία της βαθμολογίας.
+const standings = [];
+
+// Πρόσθεσε τα γκολ των παικτών όταν έχεις τα συνολικά στατιστικά.
+const scorers = [];
+
+// =====================================
+// ΕΜΦΑΝΙΣΗ ΣΤΟΙΧΕΙΩΝ
+// =====================================
+
+document.getElementById("roster").innerHTML =
+roster.map(p => `
+<div class="player">
+<div class="number">${p.number}</div>
+<div>
+<strong>${p.name}</strong><br>
+<small>${p.role}</small>
+</div>
+</div>
+`).join("");
+
+document.getElementById("results-list").innerHTML =
+results.length ? results.map(r => `
+<div class="match">
+<small>${r.date}</small>
+<div class="teams">LEGRENA FC<br>${r.score}<br>${r.opponent}</div>
+<strong>${r.status}</strong>
+</div>
+`).join("") : '<p class="empty">Δεν έχουν καταχωρηθεί αποτελέσματα.</p>';
+
+document.getElementById("standings-list").innerHTML =
+standings.map((t, i) => `
+<tr class="${t.name === 'LEGRENA FC' ? 'highlight' : ''}">
+<td>${i + 1}</td>
+<td>${t.name}</td>
+<td>${t.played}</td>
+<td>${t.wins}</td>
+<td>${t.draws}</td>
+<td>${t.losses}</td>
+<td>${t.goals}</td>
+<td>${t.points}</td>
+</tr>
+`).join("");
+
+document.getElementById("standings-empty").textContent =
+standings.length ? "" : "Η βαθμολογία θα ενημερωθεί σύντομα.";
+
+const sortedScorers = [...scorers].sort((a,b) => b.goals - a.goals);
+
+document.getElementById("scorers-list").innerHTML =
+sortedScorers.map((p,i) => `
+<tr>
+<td>${i + 1}</td>
+<td>${p.name}</td>
+<td>${p.goals}</td>
+</tr>
+`).join("");
+
+document.getElementById("scorers-empty").textContent =
+scorers.length ? "" : "Τα στατιστικά των σκόρερ θα ανακοινωθούν σύντομα.";
+</script>
+
+</body>
 </html>
+
