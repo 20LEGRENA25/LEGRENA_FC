@@ -25,20 +25,28 @@ color: var(--white);
 font-family: Arial, sans-serif;
 }
 header {
-padding: 30px 15px;
+padding: 25px 15px;
 text-align: center;
 background: linear-gradient(135deg, #28143f, #100b19);
 border-bottom: 2px solid var(--purple);
 }
 header img {
-width: 180px;
+width: 150px;
 height: 120px;
 object-fit: contain;
 display: block;
 margin: auto;
 }
-header h1 { color: var(--light); letter-spacing: 4px; }
-header p { color: var(--muted); font-size: 12px; }
+header h1 {
+color: var(--light);
+letter-spacing: 4px;
+margin: 10px 0 5px;
+}
+header p {
+color: var(--muted);
+font-size: 12px;
+letter-spacing: 2px;
+}
 nav {
 position: sticky;
 top: 0;
@@ -59,17 +67,33 @@ padding: 9px 11px;
 border-radius: 6px;
 }
 nav a:hover { background: var(--purple); }
+
 .hero {
 text-align: center;
-padding: 75px 18px;
-background: radial-gradient(ellipse at center, #49256e, #21132f 55%, #100b19);
+padding: 85px 18px;
+background:
+radial-gradient(ellipse at center, #49256e 0%, #21132f 52%, #100b19 100%);
+border-bottom: 1px solid #39264f;
 }
-.hero .tag { color: var(--light); letter-spacing: 3px; font-size: 12px; }
-.hero h2 { font-size: clamp(32px, 7vw, 58px); margin: 15px 0; }
-.hero p { color: #ddd3e8; }
+.hero .tag {
+color: var(--light);
+letter-spacing: 3px;
+font-size: 12px;
+}
+.hero h2 {
+font-size: clamp(36px, 8vw, 65px);
+letter-spacing: 3px;
+margin: 18px 0;
+text-shadow: 0 0 25px #8b5cf688;
+}
+.hero p {
+color: #ddd3e8;
+letter-spacing: 2px;
+line-height: 1.7;
+}
 .btn {
 display: inline-block;
-margin-top: 15px;
+margin-top: 18px;
 padding: 13px 22px;
 background: var(--purple);
 color: white;
@@ -77,10 +101,13 @@ text-decoration: none;
 border-radius: 7px;
 font-weight: bold;
 }
+.btn:hover { background: #7441d8; }
+
 section {
 max-width: 1050px;
 margin: 35px auto;
 padding: 25px;
+scroll-margin-top: 75px;
 }
 .section-title {
 color: var(--light);
@@ -97,31 +124,44 @@ padding: 20px;
 }
 .grid {
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 gap: 15px;
 }
-.stat-card { text-align: center; }
+.stat-card {
+text-align: center;
+color: var(--muted);
+letter-spacing: 1px;
+}
 .stat-card strong {
 display: block;
 color: var(--light);
-font-size: 26px;
-margin-top: 8px;
+font-size: 30px;
+margin-top: 9px;
 }
 .match {
 text-align: center;
 background: linear-gradient(135deg, #35204d, #1b1426);
 border: 1px solid var(--purple);
 border-radius: 12px;
-padding: 22px;
+padding: 25px;
 }
 .match h3 { color: var(--light); }
 .match .teams {
-font-size: 20px;
+font-size: 21px;
 font-weight: bold;
 margin: 18px 0;
-line-height: 1.7;
+line-height: 1.8;
 }
 .match strong { color: var(--light); }
+.match .match-label {
+display: inline-block;
+color: var(--light);
+border: 1px solid #7650a5;
+border-radius: 20px;
+padding: 6px 13px;
+font-size: 11px;
+letter-spacing: 2px;
+}
 .player {
 display: flex;
 align-items: center;
@@ -151,8 +191,15 @@ background: #2b1b3d;
 font-size: 13px;
 }
 td { font-size: 14px; }
-.highlight { background: #432765; font-weight: bold; }
-.empty { text-align: center; color: var(--muted); padding: 22px; }
+.highlight {
+background: #432765;
+font-weight: bold;
+}
+.empty {
+text-align: center;
+color: var(--muted);
+padding: 22px;
+}
 footer {
 text-align: center;
 padding: 30px 15px;
@@ -162,11 +209,12 @@ color: var(--muted);
 font-size: 13px;
 }
 footer strong { color: var(--light); }
+
 @media(max-width: 600px) {
 section { padding: 18px 13px; }
 nav { gap: 2px; }
 nav a { font-size: 11px; padding: 9px 7px; }
-.hero { padding: 55px 12px; }
+.hero { padding: 60px 12px; }
 }
 </style>
 </head>
@@ -176,7 +224,7 @@ nav a { font-size: 11px; padding: 9px 7px; }
 <header>
 <img src="logo.png" alt="LEGRENA FC">
 <h1>LEGRENA FC</h1>
-<p>ΙΔΡ. 2025 | ΕΠΙΣΗΜΟΣ ΙΣΤΟΤΟΠΟΣ</p>
+<p>ΙΔΡΥΣΗ 2025 | ΕΠΙΣΗΜΗ ΙΣΤΟΣΕΛΙΔΑ</p>
 </header>
 
 <nav>
@@ -193,7 +241,7 @@ nav a { font-size: 11px; padding: 9px 7px; }
 <div class="tag">STAR SPORT CLUB MASTER LEAGUE 7x7</div>
 <h2>LEGRENA FC</h2>
 <p>ΜΙΑ ΟΜΑΔΑ. ΜΙΑ ΟΙΚΟΓΕΝΕΙΑ. ΕΝΑ ΟΝΕΙΡΟ.</p>
-<a class="btn" href="#team">ΓΝΩΡΙΣΕ ΤΗΝ ΟΜΑΔΑ</a>
+<a class="btn" href="#next">NEXT MATCH</a>
 </div>
 
 <section>
@@ -203,6 +251,8 @@ nav a { font-size: 11px; padding: 9px 7px; }
 <div class="stat-card">ΔΙΟΡΓΑΝΩΣΗ<strong>7x7</strong></div>
 <div class="stat-card">ΝΙΚΕΣ<strong>4</strong></div>
 <div class="stat-card">ΒΑΘΜΟΙ<strong>12</strong></div>
+<div class="stat-card">ΓΚΟΛ ΥΠΕΡ<strong>17</strong></div>
+<div class="stat-card">ΓΚΟΛ ΚΑΤΑ<strong>11</strong></div>
 </div>
 </section>
 
@@ -221,12 +271,12 @@ nav a { font-size: 11px; padding: 9px 7px; }
 
 <section id="results">
 <h2 class="section-title">ΑΠΟΤΕΛΕΣΜΑΤΑ</h2>
-<div id="results-list" class="grid"></div>
+<div id="list-results" class="grid"></div>
 </section>
 
 <section id="standings">
 <h2 class="section-title">ΒΑΘΜΟΛΟΓΙΑ ΠΡΩΤΑΘΛΗΜΑΤΟΣ</h2>
-<div class="panel table-wrap">
+<div class="table-wrap">
 <table>
 <thead>
 <tr>
@@ -242,7 +292,7 @@ nav a { font-size: 11px; padding: 9px 7px; }
 
 <section id="scorers">
 <h2 class="section-title">ΠΡΩΤΟΙ ΣΚΟΡΕΡ</h2>
-<div class="panel table-wrap">
+<div class="table-wrap">
 <table>
 <thead>
 <tr><th>ΘΕΣΗ</th><th>ΠΑΙΚΤΗΣ</th><th>ΓΚΟΛ</th></tr>
@@ -255,8 +305,13 @@ nav a { font-size: 11px; padding: 9px 7px; }
 <section id="next">
 <h2 class="section-title">ΕΠΟΜΕΝΟΣ ΑΓΩΝΑΣ</h2>
 <div class="match">
-<h3>MATCHDAY</h3>
-<div class="teams">LEGRENA FC<br>VS<br>CHAMPMINIONS</div>
+<span class="match-label">NEXT MATCH</span>
+<h3>STAR SPORT CLUB MASTER LEAGUE</h3>
+<div class="teams">
+LEGRENA FC<br>
+VS<br>
+CHAMPMINIONS
+</div>
 <strong>ΤΡΙΤΗ 03/11/2026 | 22:00</strong>
 <p>STAR SPORT CLUB VOULA</p>
 </div>
@@ -266,13 +321,13 @@ nav a { font-size: 11px; padding: 9px 7px; }
 <h2 class="section-title">ΕΠΙΚΟΙΝΩΝΙΑ</h2>
 <div class="panel">
 <p>Ακολουθήστε τη LEGRENA FC στα social media για νέα, φωτογραφίες και βίντεο.</p>
-<p>Instagram: <a href="https://www.instagram.com/" target="_blank" style="color:#c4a5ff;">LEGRENA FC</a></p>
+<p>Instagram: LEGRENA FC</p>
 </div>
 </section>
 
 <footer>
 <strong>LEGRENA FC</strong>
-<p>ΙΔΡ. 2025</p>
+<p>ΙΔΡΥΣΗ 2025</p>
 <p>© 2026 LEGRENA FC | ΜΕ ΕΠΙΦΥΛΑΞΗ ΟΛΑ ΤΑ ΔΙΚΑΙΩΜΑΤΑ</p>
 </footer>
 
@@ -326,7 +381,7 @@ roster.map(p => `
 </div>
 `).join("");
 
-document.getElementById("results-list").innerHTML =
+document.getElementById("list-results").innerHTML =
 results.map(r => `
 <div class="match">
 <small>${r.date}</small>
@@ -338,24 +393,34 @@ results.map(r => `
 document.getElementById("standings-list").innerHTML =
 standings.map((t, i) => `
 <tr class="${t.name === 'LEGRENA FC' ? 'highlight' : ''}">
-<td>${i+1}</td><td>${t.name}</td><td>${t.played}</td>
-<td>${t.wins}</td><td>${t.draws}</td><td>${t.losses}</td>
-<td>${t.goals}</td><td>${t.points}</td>
+<td>${i + 1}</td>
+<td>${t.name}</td>
+<td>${t.played}</td>
+<td>${t.wins}</td>
+<td>${t.draws}</td>
+<td>${t.losses}</td>
+<td>${t.goals}</td>
+<td>${t.points}</td>
 </tr>
 `).join("");
 
 document.getElementById("standings-empty").textContent =
-standings.length ? "" : "Η επίσημη βαθμολογία θα ενημερωθεί σύντομα.";
+standings.length === 0
+? "Η επίσημη βαθμολογία θα ενημερωθεί σύντομα."
+: "";
 
-const sortedScorers = [...scorers].sort((a,b) => b.goals - a.goals);
+const sortedScorers = [...scorers].sort((a, b) => b.goals - a.goals);
 
 document.getElementById("scorers-list").innerHTML =
-sortedScorers.map((p,i) => `
-<tr><td>${i+1}</td><td>${p.name}</td><td>${p.goals}</td></tr>
+sortedScorers.map((p, i) => `
+<tr>
+<td>${i + 1}</td>
+<td>${p.name}</td>
+<td>${p.goals}</td>
+</tr>
 `).join("");
 </script>
 
 </body>
 </html>
-
 
