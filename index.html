@@ -209,6 +209,104 @@ color: var(--muted);
 font-size: 13px;
 }
 footer strong { color: var(--light); }
+.news-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 18px;
+}
+
+.news-card {
+background: linear-gradient(145deg, #28183a, #1d1429);
+border: 1px solid #493260;
+border-radius: 13px;
+padding: 22px;
+display: flex;
+flex-direction: column;
+}
+
+.news-card .news-category {
+color: var(--light);
+font-size: 11px;
+letter-spacing: 2px;
+margin-bottom: 12px;
+}
+
+.news-card h3 {
+color: white;
+margin: 0 0 12px;
+}
+
+.news-card p {
+color: var(--muted);
+line-height: 1.7;
+}
+
+.news-card .news-date {
+color: #8f829e;
+font-size: 12px;
+margin-top: auto;
+}
+
+.news-button {
+display: inline-block;
+margin-top: 15px;
+padding: 11px 13px;
+background: var(--purple);
+color: white;
+text-decoration: none;
+text-align: center;
+border-radius: 7px;
+font-size: 12px;
+font-weight: bold;
+cursor: pointer;
+border: 0;
+}
+
+.news-modal {
+display: none;
+position: fixed;
+inset: 0;
+z-index: 100;
+background: #000000dd;
+padding: 20px;
+align-items: center;
+justify-content: center;
+}
+
+.news-modal.active {
+display: flex;
+}
+
+.news-modal-content {
+background: #1d1429;
+border: 1px solid var(--purple);
+border-radius: 14px;
+padding: 25px;
+width: 100%;
+max-width: 650px;
+max-height: 85vh;
+overflow-y: auto;
+}
+
+.news-modal-content h2 {
+color: var(--light);
+}
+
+.news-modal-content p {
+color: #ddd3e8;
+line-height: 1.9;
+white-space: pre-line;
+}
+
+.news-close {
+float: right;
+background: transparent;
+color: white;
+border: 1px solid #7650a5;
+border-radius: 6px;
+padding: 8px 12px;
+cursor: pointer;
+}
 
 @media(max-width: 600px) {
 section { padding: 18px 13px; }
@@ -258,11 +356,16 @@ nav a { font-size: 11px; padding: 9px 7px; }
 
 <section id="news">
 <h2 class="section-title">ΤΑ ΝΕΑ ΜΑΣ</h2>
-<div class="panel">
-<h3>Καλώς ήρθατε στην επίσημη ιστοσελίδα μας!</h3>
-<p>Εδώ θα βρίσκετε όλα τα νέα, τις ανακοινώσεις και την πορεία της LEGRENA FC.</p>
-</div>
+<div id="news-list" class="news-grid"></div>
 </section>
+
+<div id="news-modal" class="news-modal">
+<div class="news-modal-content">
+<button class="news-close" onclick="closeNews()">ΚΛΕΙΣΙΜΟ ✕</button>
+<div id="news-full-content"></div>
+</div>
+</div>
+
 
 <section id="team">
 <h2 class="section-title">ΤΟ ΡΟΣΤΕΡ ΜΑΣ</h2>
@@ -352,6 +455,70 @@ const roster = [
 {number:14, name:"Σαρλάνης", role:"Επιθετικός"},
 {number:9, name:"Ντούνας", role:"Επιθετικός"}
 ];
+const newsArticles = [
+{
+category: "ΔΗΛΩΣΕΙΣ ΠΡΟΕΔΡΟΥ",
+title: "Η ικανοποίηση του προέδρου για την πορεία της ομάδας",
+author: "Δημήτρης Ντούνας",
+date: "31/10/2026",
+excerpt: "Είμαι ευχαριστημένος με την ομάδα φέτος και κυρίως με τη δουλειά του προπονητή.",
+content: "Είμαι ευχαριστημένος με την ομάδα φέτος και κυρίως με τη δουλειά που έχει κάνει ο προπονητής μας, Διονύσης Ντόζες."
+},
+{
+category: "ΔΗΛΩΣΕΙΣ ΠΡΟΠΟΝΗΤΗ",
+title: "Διονύσης Ντόζες: «Κάθε αγώνας για εμάς είναι τελικός»",
+author: "Διονύσης Ντόζες",
+date: "31/10/2026",
+excerpt: "Ο προπονητής της LEGRENA FC μιλά για την ετοιμότητα της ομάδας ενόψει της Τρίτης.",
+content: "Η ομάδα είναι έτοιμη για την Τρίτη. Οι παίκτες μου είναι συγκεντρωμένοι και σε αυτό το ματς, με στόχο να εφαρμόσουν όσα έχουμε δουλέψει στις προπονήσεις. Κάθε αγώνας για εμάς είναι τελικός. Γι' αυτό έχουμε καταφέρει μέχρι στιγμής αυτές τις συνεχόμενες νίκες."
+},
+{
+category: "ΔΗΛΩΣΕΙΣ ΑΡΧΗΓΟΥ",
+title: "Ο αρχηγός της LEGRENA FC στέλνει το δικό του μήνυμα",
+author: "Αρχηγός LEGRENA FC",
+date: "31/10/2026",
+excerpt: "Τρία πράγματα έχει να πει ο αρχηγός: εμπιστοσύνη, ευγνωμοσύνη και VAMOS!",
+content: "Δεν μου αρέσουν τα πολλά λόγια, γι' αυτό θα αναφερθώ σε τρία πράγματα. Πρώτον, πιστεύω στους συμπαίκτες μου και με έχουν βγάλει ασπροπρόσωπο. Δεύτερον, ευχαριστούμε τους οπαδούς μας που, με κρύο ή ζέστη, είναι πάντα εκεί για να μας εμψυχώνουν. Και τρίτον… VAMOS LEGRENA FC!"
+}
+];
+
+function renderNews() {
+document.getElementById("news-list").innerHTML =
+newsArticles.map((article, index) => `
+<article class="news-card">
+<div class="news-category">${article.category}</div>
+<h3>${article.title}</h3>
+<p>${article.excerpt}</p>
+<div class="news-date">${article.date} | ${article.author}</div>
+<button class="news-button" onclick="openNews(${index})">
+ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ
+</button>
+</article>
+`).join("");
+}
+
+function openNews(index) {
+const article = newsArticles[index];
+
+document.getElementById("news-full-content").innerHTML = `
+<div class="news-category">${article.category}</div>
+<h2>${article.title}</h2>
+<small>${article.date} | ${article.author}</small>
+<p>${article.content}</p>
+<strong style="color:#c4a5ff;">LEGRENA FC</strong>
+`;
+
+document.getElementById("news-modal").classList.add("active");
+}
+
+function closeNews() {
+document.getElementById("news-modal").classList.remove("active");
+}
+
+document.getElementById("news-modal").addEventListener("click", function(event) {
+if (event.target === this) closeNews();
+});
+
 
 const results = [
 {date:"29/09/2026", home:"SHADOWS", away:"LEGRENA FC", score:"4 - 5", status:"ΝΙΚΗ LEGRENA FC"},
@@ -419,6 +586,7 @@ sortedScorers.map((p, i) => `
 <td>${p.goals}</td>
 </tr>
 `).join("");
+  renderNews();
 </script>
 
 </body>
