@@ -16,20 +16,25 @@
 --white: #ffffff;
 --muted: #aaa0b8;
 }
+
 * { box-sizing: border-box; }
+
 html { scroll-behavior: smooth; }
+
 body {
 margin: 0;
 background: var(--bg);
 color: var(--white);
 font-family: Arial, sans-serif;
 }
+
 header {
 padding: 25px 15px;
 text-align: center;
 background: linear-gradient(135deg, #28143f, #100b19);
 border-bottom: 2px solid var(--purple);
 }
+
 header img {
 width: 150px;
 height: 120px;
@@ -37,16 +42,19 @@ object-fit: contain;
 display: block;
 margin: auto;
 }
+
 header h1 {
 color: var(--light);
 letter-spacing: 4px;
 margin: 10px 0 5px;
 }
+
 header p {
 color: var(--muted);
 font-size: 12px;
 letter-spacing: 2px;
 }
+
 nav {
 position: sticky;
 top: 0;
@@ -59,6 +67,7 @@ gap: 8px;
 padding: 13px 8px;
 border-bottom: 1px solid #39264f;
 }
+
 nav a {
 color: white;
 text-decoration: none;
@@ -66,31 +75,35 @@ font-size: 13px;
 padding: 9px 11px;
 border-radius: 6px;
 }
+
 nav a:hover { background: var(--purple); }
 
 .hero {
 text-align: center;
 padding: 85px 18px;
-background:
-radial-gradient(ellipse at center, #49256e 0%, #21132f 52%, #100b19 100%);
+background: radial-gradient(ellipse at center, #49256e 0%, #21132f 52%, #100b19 100%);
 border-bottom: 1px solid #39264f;
 }
+
 .hero .tag {
 color: var(--light);
 letter-spacing: 3px;
 font-size: 12px;
 }
+
 .hero h2 {
 font-size: clamp(36px, 8vw, 65px);
 letter-spacing: 3px;
 margin: 18px 0;
 text-shadow: 0 0 25px #8b5cf688;
 }
+
 .hero p {
 color: #ddd3e8;
 letter-spacing: 2px;
 line-height: 1.7;
 }
+
 .btn {
 display: inline-block;
 margin-top: 18px;
@@ -101,6 +114,7 @@ text-decoration: none;
 border-radius: 7px;
 font-weight: bold;
 }
+
 .btn:hover { background: #7441d8; }
 
 section {
@@ -109,6 +123,7 @@ margin: 35px auto;
 padding: 25px;
 scroll-margin-top: 75px;
 }
+
 .section-title {
 color: var(--light);
 font-size: 25px;
@@ -116,28 +131,33 @@ border-left: 4px solid var(--purple);
 padding-left: 13px;
 margin-bottom: 22px;
 }
+
 .panel, .stat-card, .player {
 background: var(--panel);
 border: 1px solid #39264f;
 border-radius: 12px;
 padding: 20px;
 }
+
 .grid {
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 gap: 15px;
 }
+
 .stat-card {
 text-align: center;
 color: var(--muted);
 letter-spacing: 1px;
 }
+
 .stat-card strong {
 display: block;
 color: var(--light);
 font-size: 30px;
 margin-top: 9px;
 }
+
 .match {
 text-align: center;
 background: linear-gradient(135deg, #35204d, #1b1426);
@@ -145,14 +165,18 @@ border: 1px solid var(--purple);
 border-radius: 12px;
 padding: 25px;
 }
+
 .match h3 { color: var(--light); }
+
 .match .teams {
 font-size: 21px;
 font-weight: bold;
 margin: 18px 0;
 line-height: 1.8;
 }
+
 .match strong { color: var(--light); }
+
 .match .match-label {
 display: inline-block;
 color: var(--light);
@@ -162,53 +186,57 @@ padding: 6px 13px;
 font-size: 11px;
 letter-spacing: 2px;
 }
+
 .player {
 display: flex;
 align-items: center;
 gap: 13px;
 }
+
 .number {
 color: var(--light);
 font-size: 23px;
 font-weight: bold;
 min-width: 38px;
 }
+
 .player small { color: var(--muted); }
+
 .table-wrap { overflow-x: auto; }
+
 table {
 width: 100%;
 border-collapse: collapse;
 min-width: 350px;
 }
+
 th, td {
 padding: 13px 10px;
 text-align: center;
 border-bottom: 1px solid #40314e;
 }
+
 th {
 color: var(--light);
 background: #2b1b3d;
 font-size: 13px;
 }
+
 td { font-size: 14px; }
+
 .highlight {
 background: #432765;
 font-weight: bold;
 }
+
 .empty {
 text-align: center;
 color: var(--muted);
 padding: 22px;
 }
-footer {
-text-align: center;
-padding: 30px 15px;
-background: #171020;
-border-top: 2px solid var(--purple);
-color: var(--muted);
-font-size: 13px;
-}
-footer strong { color: var(--light); }
+
+/* NEWS */
+
 .news-grid {
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -224,7 +252,7 @@ display: flex;
 flex-direction: column;
 }
 
-.news-card .news-category {
+.news-category {
 color: var(--light);
 font-size: 11px;
 letter-spacing: 2px;
@@ -234,6 +262,7 @@ margin-bottom: 12px;
 .news-card h3 {
 color: white;
 margin: 0 0 12px;
+line-height: 1.5;
 }
 
 .news-card p {
@@ -241,7 +270,7 @@ color: var(--muted);
 line-height: 1.7;
 }
 
-.news-card .news-date {
+.news-date {
 color: #8f829e;
 font-size: 12px;
 margin-top: auto;
@@ -253,7 +282,6 @@ margin-top: 15px;
 padding: 11px 13px;
 background: var(--purple);
 color: white;
-text-decoration: none;
 text-align: center;
 border-radius: 7px;
 font-size: 12px;
@@ -261,6 +289,8 @@ font-weight: bold;
 cursor: pointer;
 border: 0;
 }
+
+.news-button:hover { background: #7441d8; }
 
 .news-modal {
 display: none;
@@ -273,9 +303,7 @@ align-items: center;
 justify-content: center;
 }
 
-.news-modal.active {
-display: flex;
-}
+.news-modal.active { display: flex; }
 
 .news-modal-content {
 background: #1d1429;
@@ -288,9 +316,7 @@ max-height: 85vh;
 overflow-y: auto;
 }
 
-.news-modal-content h2 {
-color: var(--light);
-}
+.news-modal-content h2 { color: var(--light); }
 
 .news-modal-content p {
 color: #ddd3e8;
@@ -308,45 +334,24 @@ padding: 8px 12px;
 cursor: pointer;
 }
 
+footer {
+text-align: center;
+padding: 30px 15px;
+background: #171020;
+border-top: 2px solid var(--purple);
+color: var(--muted);
+font-size: 13px;
+}
+
+footer strong { color: var(--light); }
+
 @media(max-width: 600px) {
 section { padding: 18px 13px; }
 nav { gap: 2px; }
 nav a { font-size: 11px; padding: 9px 7px; }
 .hero { padding: 60px 12px; }
+.news-modal-content { padding: 18px; }
 }
-.standings-table {
-width: 100%;
-border-collapse: collapse;
-text-align: center;
-color: #ffffff;
-background: #1d1429;
-font-size: 13px;
-}
-
-.standings-table th {
-background: #100b19;
-color: #c4a5ff;
-padding: 13px 7px;
-}
-
-.standings-table td {
-padding: 13px 7px;
-border-bottom: 1px solid #38294b;
-}
-
-.standings-table tr.legrena-row {
-background: #6d28d9;
-font-weight: bold;
-color: white;
-}
-
-.table-container {
-width: 100%;
-overflow-x: auto;
-border-radius: 12px;
-}
-
-
 </style>
 </head>
 
@@ -399,7 +404,6 @@ border-radius: 12px;
 </div>
 </div>
 
-
 <section id="team">
 <h2 class="section-title">ΤΟ ΡΟΣΤΕΡ ΜΑΣ</h2>
 <div id="roster" class="grid"></div>
@@ -411,29 +415,20 @@ border-radius: 12px;
 </section>
 
 <section id="standings">
-<div class="section-header">
-<h2>ΒΑΘΜΟΛΟΓΙΑ</h2>
-<p>STAR SPORT CLUB MASTER LEAGUE 7x7</p>
-</div>
-
-<div class="table-container">
-<table class="standings-table">
+<h2 class="section-title">ΒΑΘΜΟΛΟΓΙΑ ΠΡΩΤΑΘΛΗΜΑΤΟΣ</h2>
+<div class="table-wrap">
+<table>
 <thead>
 <tr>
-<th>ΘΕΣΗ</th>
-<th>ΟΜΑΔΑ</th>
-<th>ΑΓ</th>
-<th>Ν</th>
-<th>Ι</th>
-<th>Η</th>
-<th>ΒΑΘ.</th>
+<th>ΘΕΣΗ</th><th>ΟΜΑΔΑ</th><th>ΑΓ.</th>
+<th>Ν</th><th>Ι</th><th>Η</th><th>ΓΚΟΛ</th><th>ΒΑΘ.</th>
 </tr>
 </thead>
-<tbody id="standings-table-body"></tbody>
+<tbody id="standings-list"></tbody>
 </table>
+<p id="standings-empty" class="empty"></p>
 </div>
 </section>
-
 
 <section id="scorers">
 <h2 class="section-title">ΠΡΩΤΟΙ ΣΚΟΡΕΡ</h2>
@@ -477,6 +472,8 @@ CHAMPMINIONS
 </footer>
 
 <script>
+/* ROSTER */
+
 const roster = [
 {number:16, name:"Κωστόπουλος", role:"Τερματοφύλακας"},
 {number:69, name:"Διζικιρίκης", role:"Τερματοφύλακας"},
@@ -497,6 +494,9 @@ const roster = [
 {number:14, name:"Σαρλάνης", role:"Επιθετικός"},
 {number:9, name:"Ντούνας", role:"Επιθετικός"}
 ];
+
+/* NEWS */
+
 const newsArticles = [
 {
 category: "ΔΗΛΩΣΕΙΣ ΠΡΟΕΔΡΟΥ",
@@ -524,43 +524,7 @@ content: "Δεν μου αρέσουν τα πολλά λόγια, γι' αυτ�
 }
 ];
 
-function renderNews() {
-document.getElementById("news-list").innerHTML =
-newsArticles.map((article, index) => `
-<article class="news-card">
-<div class="news-category">${article.category}</div>
-<h3>${article.title}</h3>
-<p>${article.excerpt}</p>
-<div class="news-date">${article.date} | ${article.author}</div>
-<button class="news-button" onclick="openNews(${index})">
-ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ
-</button>
-</article>
-`).join("");
-}
-
-function openNews(index) {
-const article = newsArticles[index];
-
-document.getElementById("news-full-content").innerHTML = `
-<div class="news-category">${article.category}</div>
-<h2>${article.title}</h2>
-<small>${article.date} | ${article.author}</small>
-<p>${article.content}</p>
-<strong style="color:#c4a5ff;">LEGRENA FC</strong>
-`;
-
-document.getElementById("news-modal").classList.add("active");
-}
-
-function closeNews() {
-document.getElementById("news-modal").classList.remove("active");
-}
-
-document.getElementById("news-modal").addEventListener("click", function(event) {
-if (event.target === this) closeNews();
-});
-
+/* RESULTS */
 
 const results = [
 {date:"29/09/2026", home:"SHADOWS", away:"LEGRENA FC", score:"4 - 5", status:"ΝΙΚΗ LEGRENA FC"},
@@ -570,116 +534,25 @@ const results = [
 {date:"26/10/2026", home:"LEGRENA FC", away:"UNATLETICO", score:"—", status:"ΑΝΑΒΛΗΘΗΚΕ"}
 ];
 
+/* STANDINGS */
+
 const standings = [
-{
-position: 1,
-name: "CHAMPMINIONS",
-played: 4,
-wins: 4,
-draws: 0,
-losses: 0,
-points: 12
-},
-{
-position: 2,
-name: "LEGRENA FC",
-played: 4,
-wins: 4,
-draws: 0,
-losses: 0,
-points: 12
-},
-{
-position: 3,
-name: "UNATLETICO",
-played: 4,
-wins: 3,
-draws: 1,
-losses: 0,
-points: 10
-},
-{
-position: 4,
-name: "BLYZZ",
-played: 4,
-wins: 3,
-draws: 0,
-losses: 1,
-points: 9
-},
-{
-position: 5,
-name: "ΦΙΟΡΕΠΕΙΝΑ",
-played: 4,
-wins: 2,
-draws: 1,
-losses: 1,
-points: 7
-},
-{
-position: 6,
-name: "SAVRALLIOLID",
-played: 4,
-wins: 2,
-draws: 0,
-losses: 2,
-points: 6
-},
-{
-position: 7,
-name: "SHADOWS",
-played: 5,
-wins: 2,
-draws: 0,
-losses: 3,
-points: 6
-},
-{
-position: 8,
-name: "BLUE FISH",
-played: 5,
-wins: 1,
-draws: 0,
-losses: 4,
-points: 3
-},
-{
-position: 9,
-name: "ASTON VOULA B",
-played: 3,
-wins: 1,
-draws: 0,
-losses: 2,
-points: 3
-},
-{
-position: 10,
-name: "BUNKER PARTHENR",
-played: 4,
-wins: 1,
-draws: 0,
-losses: 3,
-points: 3
-},
-{
-position: 11,
-name: "GATES OF OLYMPUS",
-played: 4,
-wins: 0,
-draws: 2,
-losses: 2,
-points: 2
-},
-{
-position: 12,
-name: "ΦΛΑΠ FC",
-played: 5,
-wins: 0,
-draws: 0,
-losses: 5,
-points: 0
-}
+{position:1, name:"CHAMPMINIONS", played:4, wins:4, draws:0, losses:0, points:12},
+{position:2, name:"LEGRENA FC", played:4, wins:4, draws:0, losses:0, points:12},
+{position:3, name:"UNATLETICO", played:4, wins:3, draws:1, losses:0, points:10},
+{position:4, name:"BLYZZ", played:4, wins:3, draws:0, losses:1, points:9},
+{position:5, name:"ΦΙΟΡΕΠΕΙΝΑ", played:4, wins:2, draws:1, losses:1, points:7},
+{position:6, name:"SAVRALLIOLID", played:4, wins:2, draws:0, losses:2, points:6},
+{position:7, name:"SHADOWS", played:5, wins:2, draws:0, losses:3, points:6},
+{position:8, name:"BLUE FISH", played:5, wins:1, draws:0, losses:4, points:3},
+{position:9, name:"ASTON VOULA B", played:3, wins:1, draws:0, losses:2, points:3},
+{position:10, name:"BUNKER PARTHENR", played:4, wins:1, draws:0, losses:3, points:3},
+{position:11, name:"GATES OF OLYMPUS", played:4, wins:0, draws:2, losses:2, points:2},
+{position:12, name:"ΦΛΑΠ FC", played:5, wins:0, draws:0, losses:5, points:0}
 ];
+
+/* SCORERS */
+
 const scorers = [
 {name:"Χατζηαντωνίου", goals:5},
 {name:"Μπαλτάς", goals:5},
@@ -690,6 +563,8 @@ const scorers = [
 {name:"Νταρζάνος", goals:1}
 ];
 
+/* DISPLAY ROSTER */
+
 document.getElementById("roster").innerHTML =
 roster.map(p => `
 <div class="player">
@@ -697,6 +572,8 @@ roster.map(p => `
 <div><strong>${p.name}</strong><br><small>${p.role}</small></div>
 </div>
 `).join("");
+
+/* DISPLAY RESULTS */
 
 document.getElementById("list-results").innerHTML =
 results.map(r => `
@@ -706,6 +583,8 @@ results.map(r => `
 <strong>${r.status}</strong>
 </div>
 `).join("");
+
+/* DISPLAY STANDINGS */
 
 document.getElementById("standings-list").innerHTML =
 standings.map((t, i) => `
@@ -726,6 +605,8 @@ standings.length === 0
 ? "Η επίσημη βαθμολογία θα ενημερωθεί σύντομα."
 : "";
 
+/* DISPLAY SCORERS */
+
 const sortedScorers = [...scorers].sort((a, b) => b.goals - a.goals);
 
 document.getElementById("scorers-list").innerHTML =
@@ -736,26 +617,53 @@ sortedScorers.map((p, i) => `
 <td>${p.goals}</td>
 </tr>
 `).join("");
-  renderNews();
-const standingsBody = document.getElementById("standings-table-body");
 
-if (standingsBody) {
-const sortedStandings = [...standings].sort(
-(a, b) => b.points - a.points
-);
+/* DISPLAY NEWS */
 
-standingsBody.innerHTML = sortedStandings.map((team, index) => `
-<tr class="${team.name === 'LEGRENA FC' ? 'legrena-row' : ''}">
-<td>${index + 1}</td>
-<td>${team.name}</td>
-<td>${team.played}</td>
-<td>${team.wins}</td>
-<td>${team.draws}</td>
-<td>${team.losses}</td>
-<td><strong>${team.points}</strong></td>
-</tr>
+function renderNews() {
+document.getElementById("news-list").innerHTML =
+newsArticles.map((article, index) => `
+<article class="news-card">
+<div class="news-category">${article.category}</div>
+<h3>${article.title}</h3>
+<p>${article.excerpt}</p>
+<div class="news-date">${article.date} | ${article.author}</div>
+<button class="news-button" onclick="openNews(${index})">
+ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ
+</button>
+</article>
 `).join("");
 }
+
+/* OPEN ARTICLE */
+
+function openNews(index) {
+const article = newsArticles[index];
+
+document.getElementById("news-full-content").innerHTML = `
+<div class="news-category">${article.category}</div>
+<h2>${article.title}</h2>
+<small>${article.date} | ${article.author}</small>
+<p>${article.content}</p>
+<strong style="color:#c4a5ff;">LEGRENA FC</strong>
+`;
+
+document.getElementById("news-modal").classList.add("active");
+}
+
+/* CLOSE ARTICLE */
+
+function closeNews() {
+document.getElementById("news-modal").classList.remove("active");
+}
+
+document.getElementById("news-modal").addEventListener("click", function(event) {
+if (event.target === this) closeNews();
+});
+
+/* INITIALIZE NEWS */
+
+renderNews();
 
 </script>
 
