@@ -314,6 +314,39 @@ nav { gap: 2px; }
 nav a { font-size: 11px; padding: 9px 7px; }
 .hero { padding: 60px 12px; }
 }
+.standings-table {
+width: 100%;
+border-collapse: collapse;
+text-align: center;
+color: #ffffff;
+background: #1d1429;
+font-size: 13px;
+}
+
+.standings-table th {
+background: #100b19;
+color: #c4a5ff;
+padding: 13px 7px;
+}
+
+.standings-table td {
+padding: 13px 7px;
+border-bottom: 1px solid #38294b;
+}
+
+.standings-table tr.legrena-row {
+background: #6d28d9;
+font-weight: bold;
+color: white;
+}
+
+.table-container {
+width: 100%;
+overflow-x: auto;
+border-radius: 12px;
+}
+
+
 </style>
 </head>
 
@@ -378,20 +411,29 @@ nav a { font-size: 11px; padding: 9px 7px; }
 </section>
 
 <section id="standings">
-<h2 class="section-title">ΒΑΘΜΟΛΟΓΙΑ ΠΡΩΤΑΘΛΗΜΑΤΟΣ</h2>
-<div class="table-wrap">
-<table>
+<div class="section-header">
+<h2>ΒΑΘΜΟΛΟΓΙΑ</h2>
+<p>STAR SPORT CLUB MASTER LEAGUE 7x7</p>
+</div>
+
+<div class="table-container">
+<table class="standings-table">
 <thead>
 <tr>
-<th>ΘΕΣΗ</th><th>ΟΜΑΔΑ</th><th>ΑΓ.</th>
-<th>Ν</th><th>Ι</th><th>Η</th><th>ΓΚΟΛ</th><th>ΒΑΘ.</th>
+<th>ΘΕΣΗ</th>
+<th>ΟΜΑΔΑ</th>
+<th>ΑΓ</th>
+<th>Ν</th>
+<th>Ι</th>
+<th>Η</th>
+<th>ΒΑΘ.</th>
 </tr>
 </thead>
-<tbody id="standings-list"></tbody>
+<tbody id="standings-table-body"></tbody>
 </table>
-<p id="standings-empty" class="empty"></p>
 </div>
 </section>
+
 
 <section id="scorers">
 <h2 class="section-title">ΠΡΩΤΟΙ ΣΚΟΡΕΡ</h2>
@@ -695,6 +737,26 @@ sortedScorers.map((p, i) => `
 </tr>
 `).join("");
   renderNews();
+const standingsBody = document.getElementById("standings-table-body");
+
+if (standingsBody) {
+const sortedStandings = [...standings].sort(
+(a, b) => b.points - a.points
+);
+
+standingsBody.innerHTML = sortedStandings.map((team, index) => `
+<tr class="${team.name === 'LEGRENA FC' ? 'legrena-row' : ''}">
+<td>${index + 1}</td>
+<td>${team.name}</td>
+<td>${team.played}</td>
+<td>${team.wins}</td>
+<td>${team.draws}</td>
+<td>${team.losses}</td>
+<td><strong>${team.points}</strong></td>
+</tr>
+`).join("");
+}
+
 </script>
 
 </body>
