@@ -4,353 +4,161 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#100b19">
-<meta name="description" content="Η επίσημη ιστοσελίδα της LEGRENA FC.">
+<meta name="description" content="Η επίσημη ιστοσελίδα της LEGRENA FC. Νέα, αποτελέσματα, βαθμολογία και σκόρερ.">
 <title>LEGRENA FC | Επίσημη Ιστοσελίδα</title>
 
 <style>
 :root {
---bg: #100b19;
---panel: #1d1429;
---purple: #8b5cf6;
---light: #c4a5ff;
---white: #ffffff;
---muted: #aaa0b8;
+--bg:#100b19;
+--panel:#1d1429;
+--purple:#8b5cf6;
+--light:#c4a5ff;
+--white:#fff;
+--muted:#aaa0b8;
 }
-
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-margin: 0;
-background: var(--bg);
-color: var(--white);
-font-family: Arial, sans-serif;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;background:var(--bg);color:var(--white);
+font-family:Arial,sans-serif;
 }
-
-header {
-padding: 25px 15px;
-text-align: center;
-background: linear-gradient(135deg, #28143f, #100b19);
-border-bottom: 2px solid var(--purple);
+header{
+padding:25px 15px;text-align:center;
+background:linear-gradient(135deg,#28143f,#100b19);
+border-bottom:2px solid var(--purple);
 }
-
-header img {
-width: 150px;
-height: 120px;
-object-fit: contain;
-display: block;
-margin: auto;
+header img{
+width:150px;height:120px;object-fit:contain;
+display:block;margin:auto;
 }
-
-header h1 {
-color: var(--light);
-letter-spacing: 4px;
-margin: 10px 0 5px;
+header h1{color:var(--light);letter-spacing:4px;margin:10px 0 5px}
+header p{color:var(--muted);font-size:12px;letter-spacing:2px}
+nav{
+position:sticky;top:0;z-index:10;background:#171020;
+display:flex;justify-content:center;flex-wrap:wrap;
+gap:8px;padding:13px 8px;border-bottom:1px solid #39264f;
 }
-
-header p {
-color: var(--muted);
-font-size: 12px;
-letter-spacing: 2px;
+nav a{
+color:white;text-decoration:none;font-size:13px;
+padding:9px 11px;border-radius:6px;
 }
-
-nav {
-position: sticky;
-top: 0;
-z-index: 10;
-background: #171020;
-display: flex;
-justify-content: center;
-flex-wrap: wrap;
-gap: 8px;
-padding: 13px 8px;
-border-bottom: 1px solid #39264f;
+nav a:hover{background:var(--purple)}
+.hero{
+text-align:center;padding:85px 18px;
+background:radial-gradient(ellipse at center,#49256e 0%,#21132f 52%,#100b19 100%);
+border-bottom:1px solid #39264f;
 }
-
-nav a {
-color: white;
-text-decoration: none;
-font-size: 13px;
-padding: 9px 11px;
-border-radius: 6px;
+.hero .tag{color:var(--light);letter-spacing:3px;font-size:12px}
+.hero h2{
+font-size:clamp(36px,8vw,65px);letter-spacing:3px;
+margin:18px 0;text-shadow:0 0 25px #8b5cf688;
 }
-
-nav a:hover { background: var(--purple); }
-
-.hero {
-text-align: center;
-padding: 85px 18px;
-background: radial-gradient(ellipse at center, #49256e 0%, #21132f 52%, #100b19 100%);
-border-bottom: 1px solid #39264f;
+.hero p{color:#ddd3e8;letter-spacing:2px;line-height:1.7}
+.btn{
+display:inline-block;margin-top:18px;padding:13px 22px;
+background:var(--purple);color:white;text-decoration:none;
+border-radius:7px;font-weight:bold;
 }
-
-.hero .tag {
-color: var(--light);
-letter-spacing: 3px;
-font-size: 12px;
+.btn:hover{background:#7441d8}
+section{
+max-width:1050px;margin:35px auto;padding:25px;
+scroll-margin-top:75px;
 }
-
-.hero h2 {
-font-size: clamp(36px, 8vw, 65px);
-letter-spacing: 3px;
-margin: 18px 0;
-text-shadow: 0 0 25px #8b5cf688;
+.section-title{
+color:var(--light);font-size:25px;
+border-left:4px solid var(--purple);
+padding-left:13px;margin-bottom:22px;
 }
-
-.hero p {
-color: #ddd3e8;
-letter-spacing: 2px;
-line-height: 1.7;
+.panel,.stat-card,.player{
+background:var(--panel);border:1px solid #39264f;
+border-radius:12px;padding:20px;
 }
-
-.btn {
-display: inline-block;
-margin-top: 18px;
-padding: 13px 22px;
-background: var(--purple);
-color: white;
-text-decoration: none;
-border-radius: 7px;
-font-weight: bold;
+.grid{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
 }
-
-.btn:hover { background: #7441d8; }
-
-section {
-max-width: 1050px;
-margin: 35px auto;
-padding: 25px;
-scroll-margin-top: 75px;
+.stat-card{text-align:center;color:var(--muted);letter-spacing:1px}
+.stat-card strong{
+display:block;color:var(--light);font-size:30px;margin-top:9px;
 }
-
-.section-title {
-color: var(--light);
-font-size: 25px;
-border-left: 4px solid var(--purple);
-padding-left: 13px;
-margin-bottom: 22px;
+.match{
+text-align:center;background:linear-gradient(135deg,#35204d,#1b1426);
+border:1px solid var(--purple);border-radius:12px;padding:25px;
 }
-
-.panel, .stat-card, .player {
-background: var(--panel);
-border: 1px solid #39264f;
-border-radius: 12px;
-padding: 20px;
+.match h3{color:var(--light)}
+.match .teams{
+font-size:21px;font-weight:bold;margin:18px 0;line-height:1.8;
 }
-
-.grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-gap: 15px;
+.match strong{color:var(--light)}
+.match .match-label{
+display:inline-block;color:var(--light);
+border:1px solid #7650a5;border-radius:20px;
+padding:6px 13px;font-size:11px;letter-spacing:2px;
 }
-
-.stat-card {
-text-align: center;
-color: var(--muted);
-letter-spacing: 1px;
+.player{display:flex;align-items:center;gap:13px}
+.number{color:var(--light);font-size:23px;font-weight:bold;min-width:38px}
+.player small{color:var(--muted)}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:350px}
+th,td{
+padding:13px 10px;text-align:center;
+border-bottom:1px solid #40314e;
 }
-
-.stat-card strong {
-display: block;
-color: var(--light);
-font-size: 30px;
-margin-top: 9px;
+th{color:var(--light);background:#2b1b3d;font-size:13px}
+td{font-size:14px}
+.highlight{background:#432765;font-weight:bold}
+.empty{text-align:center;color:var(--muted);padding:22px}
+.news-grid{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:18px;
 }
-
-.match {
-text-align: center;
-background: linear-gradient(135deg, #35204d, #1b1426);
-border: 1px solid var(--purple);
-border-radius: 12px;
-padding: 25px;
+.news-card{
+background:linear-gradient(145deg,#28183a,#1d1429);
+border:1px solid #493260;border-radius:13px;padding:22px;
+display:flex;flex-direction:column;
 }
-
-.match h3 { color: var(--light); }
-
-.match .teams {
-font-size: 21px;
-font-weight: bold;
-margin: 18px 0;
-line-height: 1.8;
+.news-category{color:var(--light);font-size:11px;letter-spacing:2px;margin-bottom:12px}
+.news-card h3{color:white;margin:0 0 12px;line-height:1.5}
+.news-card p{color:var(--muted);line-height:1.7}
+.news-date{color:#8f829e;font-size:12px;margin-top:auto}
+.news-button{
+display:inline-block;margin-top:15px;padding:11px 13px;
+background:var(--purple);color:white;text-align:center;
+border-radius:7px;font-size:12px;font-weight:bold;
+cursor:pointer;border:0;
 }
-
-.match strong { color: var(--light); }
-
-.match .match-label {
-display: inline-block;
-color: var(--light);
-border: 1px solid #7650a5;
-border-radius: 20px;
-padding: 6px 13px;
-font-size: 11px;
-letter-spacing: 2px;
+.news-button:hover{background:#7441d8}
+.news-modal{
+display:none;position:fixed;inset:0;z-index:100;
+background:#000000dd;padding:20px;
+align-items:center;justify-content:center;
 }
-
-.player {
-display: flex;
-align-items: center;
-gap: 13px;
+.news-modal.active{display:flex}
+.news-modal-content{
+background:#1d1429;border:1px solid var(--purple);
+border-radius:14px;padding:25px;width:100%;
+max-width:650px;max-height:85vh;overflow-y:auto;
 }
-
-.number {
-color: var(--light);
-font-size: 23px;
-font-weight: bold;
-min-width: 38px;
+.news-modal-content h2{color:var(--light)}
+.news-modal-content p{
+color:#ddd3e8;line-height:1.9;white-space:pre-line;
 }
-
-.player small { color: var(--muted); }
-
-.table-wrap { overflow-x: auto; }
-
-table {
-width: 100%;
-border-collapse: collapse;
-min-width: 350px;
+.news-close{
+float:right;background:transparent;color:white;
+border:1px solid #7650a5;border-radius:6px;
+padding:8px 12px;cursor:pointer;
 }
-
-th, td {
-padding: 13px 10px;
-text-align: center;
-border-bottom: 1px solid #40314e;
+footer{
+text-align:center;padding:30px 15px;background:#171020;
+border-top:2px solid var(--purple);color:var(--muted);font-size:13px;
 }
-
-th {
-color: var(--light);
-background: #2b1b3d;
-font-size: 13px;
-}
-
-td { font-size: 14px; }
-
-.highlight {
-background: #432765;
-font-weight: bold;
-}
-
-.empty {
-text-align: center;
-color: var(--muted);
-padding: 22px;
-}
-
-/* NEWS */
-
-.news-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-gap: 18px;
-}
-
-.news-card {
-background: linear-gradient(145deg, #28183a, #1d1429);
-border: 1px solid #493260;
-border-radius: 13px;
-padding: 22px;
-display: flex;
-flex-direction: column;
-}
-
-.news-category {
-color: var(--light);
-font-size: 11px;
-letter-spacing: 2px;
-margin-bottom: 12px;
-}
-
-.news-card h3 {
-color: white;
-margin: 0 0 12px;
-line-height: 1.5;
-}
-
-.news-card p {
-color: var(--muted);
-line-height: 1.7;
-}
-
-.news-date {
-color: #8f829e;
-font-size: 12px;
-margin-top: auto;
-}
-
-.news-button {
-display: inline-block;
-margin-top: 15px;
-padding: 11px 13px;
-background: var(--purple);
-color: white;
-text-align: center;
-border-radius: 7px;
-font-size: 12px;
-font-weight: bold;
-cursor: pointer;
-border: 0;
-}
-
-.news-button:hover { background: #7441d8; }
-
-.news-modal {
-display: none;
-position: fixed;
-inset: 0;
-z-index: 100;
-background: #000000dd;
-padding: 20px;
-align-items: center;
-justify-content: center;
-}
-
-.news-modal.active { display: flex; }
-
-.news-modal-content {
-background: #1d1429;
-border: 1px solid var(--purple);
-border-radius: 14px;
-padding: 25px;
-width: 100%;
-max-width: 650px;
-max-height: 85vh;
-overflow-y: auto;
-}
-
-.news-modal-content h2 { color: var(--light); }
-
-.news-modal-content p {
-color: #ddd3e8;
-line-height: 1.9;
-white-space: pre-line;
-}
-
-.news-close {
-float: right;
-background: transparent;
-color: white;
-border: 1px solid #7650a5;
-border-radius: 6px;
-padding: 8px 12px;
-cursor: pointer;
-}
-
-footer {
-text-align: center;
-padding: 30px 15px;
-background: #171020;
-border-top: 2px solid var(--purple);
-color: var(--muted);
-font-size: 13px;
-}
-
-footer strong { color: var(--light); }
-
-@media(max-width: 600px) {
-section { padding: 18px 13px; }
-nav { gap: 2px; }
-nav a { font-size: 11px; padding: 9px 7px; }
-.hero { padding: 60px 12px; }
-.news-modal-content { padding: 18px; }
+footer strong{color:var(--light)}
+@media(max-width:600px){
+section{padding:18px 13px}
+nav{gap:2px}
+nav a{font-size:11px;padding:9px 7px}
+.hero{padding:60px 12px}
+.news-modal-content{padding:18px}
 }
 </style>
 </head>
@@ -385,10 +193,10 @@ nav a { font-size: 11px; padding: 9px 7px; }
 <div class="grid">
 <div class="stat-card">ΙΔΡΥΣΗ<strong>2025</strong></div>
 <div class="stat-card">ΔΙΟΡΓΑΝΩΣΗ<strong>7x7</strong></div>
-<div class="stat-card">ΝΙΚΕΣ<strong>4</strong></div>
-<div class="stat-card">ΒΑΘΜΟΙ<strong>12</strong></div>
-<div class="stat-card">ΓΚΟΛ ΥΠΕΡ<strong>17</strong></div>
-<div class="stat-card">ΓΚΟΛ ΚΑΤΑ<strong>11</strong></div>
+<div class="stat-card">ΝΙΚΕΣ<strong>5</strong></div>
+<div class="stat-card">ΒΑΘΜΟΙ<strong>15</strong></div>
+<div class="stat-card">ΓΚΟΛ ΥΠΕΡ<strong>20</strong></div>
+<div class="stat-card">ΓΚΟΛ ΚΑΤΑ<strong>12</strong></div>
 </div>
 </section>
 
@@ -428,6 +236,7 @@ nav a { font-size: 11px; padding: 9px 7px; }
 </table>
 <p id="standings-empty" class="empty"></p>
 </div>
+<p class="empty">Η βαθμολογία των υπόλοιπων ομάδων θα επικαιροποιηθεί μετά τα παιχνίδια του Σαββατοκύριακου.</p>
 </section>
 
 <section id="scorers">
@@ -450,9 +259,9 @@ nav a { font-size: 11px; padding: 9px 7px; }
 <div class="teams">
 LEGRENA FC<br>
 VS<br>
-CHAMPMINIONS
+ΚΥΚΛΩΠΕΣ
 </div>
-<strong>ΤΡΙΤΗ 03/11/2026 | 22:00</strong>
+<strong>ΗΜΕΡΟΜΗΝΙΑ ΚΑΙ ΩΡΑ ΠΡΟΣ ΑΝΑΚΟΙΝΩΣΗ</strong>
 <p>STAR SPORT CLUB VOULA</p>
 </div>
 </section>
@@ -472,85 +281,100 @@ CHAMPMINIONS
 </footer>
 
 <script>
+
 /* ROSTER */
 
 const roster = [
-{number:16, name:"Κωστόπουλος", role:"Τερματοφύλακας"},
-{number:69, name:"Διζικιρίκης", role:"Τερματοφύλακας"},
-{number:1, name:"Μπουρμπούλης", role:"Τερματοφύλακας"},
-{number:11, name:"Σκούρτης", role:"Αμυντικός"},
-{number:15, name:"Χαχλάκης", role:"Αμυντικός"},
-{number:5, name:"Νίτσος", role:"Αμυντικός"},
-{number:77, name:"Κλώσσας", role:"Αμυντικός"},
-{number:31, name:"Αντωνάκος", role:"Αμυντικός"},
-{number:23, name:"Τσούνης", role:"Αμυντικός"},
-{number:17, name:"Ναδάλης", role:"Μέσος"},
-{number:10, name:"Γκούρας", role:"Μέσος"},
-{number:4, name:"Χατζηαντωνίου", role:"Μέσος"},
-{number:8, name:"Ανδριτσάνος", role:"Μέσος"},
-{number:34, name:"Νταρζάνος", role:"Μέσος"},
-{number:99, name:"Μπαλτάς", role:"Επιθετικός"},
-{number:7, name:"Μωραΐτης", role:"Επιθετικός"},
-{number:14, name:"Σαρλάνης", role:"Επιθετικός"},
-{number:9, name:"Ντούνας", role:"Επιθετικός"}
+{number:16,name:"Κωστόπουλος",role:"Τερματοφύλακας"},
+{number:69,name:"Διζικιρίκης",role:"Τερματοφύλακας"},
+{number:1,name:"Μπουρμπούλης",role:"Τερματοφύλακας"},
+{number:11,name:"Σκούρτης",role:"Αμυντικός"},
+{number:15,name:"Χαχλάκης",role:"Αμυντικός"},
+{number:5,name:"Νίτσος",role:"Αμυντικός"},
+{number:77,name:"Κλώσσας",role:"Αμυντικός"},
+{number:31,name:"Αντωνάκος",role:"Αμυντικός"},
+{number:23,name:"Τσούνης",role:"Αμυντικός"},
+{number:17,name:"Ναδάλης",role:"Μέσος"},
+{number:10,name:"Γκούρας",role:"Μέσος"},
+{number:4,name:"Χατζηαντωνίου",role:"Μέσος"},
+{number:8,name:"Ανδριτσάνος",role:"Μέσος"},
+{number:34,name:"Νταρζάνος",role:"Μέσος"},
+{number:99,name:"Μπαλτάς",role:"Επιθετικός"},
+{number:7,name:"Μωραΐτης",role:"Επιθετικός"},
+{number:14,name:"Σαρλάνης",role:"Επιθετικός"},
+{number:9,name:"Ντούνας",role:"Επιθετικός"}
 ];
 
-/* NEWS */
+/* NEWS - ΜΟΝΟ ΤΑ 3 ΝΕΑ ΑΡΘΡΑ */
 
 const newsArticles = [
 {
-category: "ΔΗΛΩΣΕΙΣ ΠΡΟΕΔΡΟΥ",
-title: "Δημήτρης Ντούνας: «Η ομάδα έδειξε χαρακτήρα»",
-author: "Δημήτρης Ντούνας",
-date: "04/11/2026",
-excerpt: "Ο πρόεδρος της LEGRENA FC μιλά για τη σημαντική νίκη απέναντι στους CHAMPMINIONS.",
-content: "Στον αγώνα με τους CHAMPMINIONS η ομάδα έδειξε χαρακτήρα. Οι παίκτες απέδειξαν σε διοικητικά στελέχη και οπαδούς ότι δεν βρίσκονται τυχαία σε αυτή την θέση."
+category:"ΔΗΛΩΣΕΙΣ ΠΡΟΕΔΡΟΥ",
+title:"Δημήτρης Ντούνας: «Η ομάδα έδειξε χαρακτήρα»",
+author:"Δημήτρης Ντούνας",
+date:"04/11/2026",
+excerpt:"Ο πρόεδρος της LEGRENA FC μιλά για τη σημαντική νίκη απέναντι στους CHAMPMINIONS.",
+content:"Στον αγώνα με τους CHAMPMINIONS η ομάδα έδειξε χαρακτήρα. Οι παίκτες απέδειξαν σε διοικητικά στελέχη και οπαδούς ότι δεν βρίσκονται τυχαία σε αυτή την θέση."
 },
 {
-category: "ΔΗΛΩΣΕΙΣ ΠΡΟΠΟΝΗΤΗ",
-title: "Διονύσης Ντόζες: «Μπήκαμε για τη νίκη»",
-author: "Διονύσης Ντόζες",
-date: "04/11/2026",
-excerpt: "Ο προπονητής αναλύει τη νίκη με 3-1 και στέλνει μήνυμα ενόψει της συνέχειας.",
-content: "Οι παίκτες μου μπήκαν στον αγωνιστικό χώρο για να πάρουν το μόνο που ήθελαν, και αυτό ήταν η νίκη. Τα κατάφεραν απέναντι σε έναν δύσκολο, και όχι τυχαίο αντίπαλο με 3-1. Έχουμε κάποιες μέρες να προετοιμαστούμε για τον επόμενο αγώνα ώστε να συνεχίσουμε το σερί και περιμένουμε τους οπαδούς μας να είναι εκεί."
+category:"ΔΗΛΩΣΕΙΣ ΠΡΟΠΟΝΗΤΗ",
+title:"Διονύσης Ντόζες: «Μπήκαμε για τη νίκη»",
+author:"Διονύσης Ντόζες",
+date:"04/11/2026",
+excerpt:"Ο προπονητής αναλύει τη νίκη με 3-1 και στέλνει μήνυμα ενόψει της συνέχειας.",
+content:"Οι παίκτες μου μπήκαν στον αγωνιστικό χώρο για να πάρουν το μόνο που ήθελαν, και αυτό ήταν η νίκη. Τα κατάφεραν απέναντι σε έναν δύσκολο, και όχι τυχαίο αντίπαλο με 3-1. Έχουμε κάποιες μέρες να προετοιμαστούμε για τον επόμενο αγώνα ώστε να συνεχίσουμε το σερί και περιμένουμε τους οπαδούς μας να είναι εκεί."
 },
 {
-category: "ΔΗΛΩΣΕΙΣ ΑΡΧΗΓΟΥ",
-title: "Ο αρχηγός: «Συνεχίζουμε και περιμένουμε τους ΚΥΚΛΩΠΕΣ»",
-author: "Αρχηγός LEGRENA FC",
-date: "04/11/2026",
-excerpt: "Το μήνυμα του αρχηγού μετά την πέμπτη συνεχόμενη νίκη της ομάδας.",
-content: "Δεν έχω να πω πολλά. Ένα μεγαλο μπράβο στους συμπαίκτες μου που μείναμε συγκεντρωμένοι στο πλάνο μας και πήραμε την νίκη που θέλαμε. Συνεχίζουμε και περιμένουμε τους ΚΥΚΛΩΠΕΣ στον επόμενο αγώνα να μας εμψυχώσουν όπως πάντα."
+category:"ΔΗΛΩΣΕΙΣ ΑΡΧΗΓΟΥ",
+title:"Ο αρχηγός: «Συνεχίζουμε και περιμένουμε τους ΚΥΚΛΩΠΕΣ»",
+author:"Αρχηγός LEGRENA FC",
+date:"04/11/2026",
+excerpt:"Το μήνυμα του αρχηγού μετά την πέμπτη συνεχόμενη νίκη της ομάδας.",
+content:"Δεν έχω να πω πολλά. Ένα μεγαλο μπράβο στους συμπαίκτες μου που μείναμε συγκεντρωμένοι στο πλάνο μας και πήραμε την νίκη που θέλαμε. Συνεχίζουμε και περιμένουμε τους ΚΥΚΛΩΠΕΣ στον επόμενο αγώνα να μας εμψυχώσουν όπως πάντα."
 }
 ];
-  
-/* STANDINGS */
+
+/* RESULTS */
+
+const results = [
+{date:"29/09/2026",home:"SHADOWS",away:"LEGRENA FC",score:"4 - 5",status:"ΝΙΚΗ LEGRENA FC"},
+{date:"08/10/2026",home:"LEGRENA FC",away:"SAVRALLIOLID",score:"5 - 4",status:"ΝΙΚΗ LEGRENA FC"},
+{date:"15/10/2026",home:"LEGRENA FC",away:"ASTON VOULA B",score:"4 - 1",status:"ΝΙΚΗ LEGRENA FC"},
+{date:"21/10/2026",home:"ΦΛΑΠ FC",away:"LEGRENA FC",score:"2 - 3",status:"ΝΙΚΗ LEGRENA FC"},
+{date:"26/10/2026",home:"LEGRENA FC",away:"UNATLETICO",score:"—",status:"ΑΝΑΒΛΗΘΗΚΕ"},
+{date:"03/11/2026",home:"LEGRENA FC",away:"CHAMPMINIONS",score:"3 - 1",status:"ΝΙΚΗ LEGRENA FC"}
+];
+
+/* STANDINGS
+Τα στοιχεία των άλλων ομάδων είναι προσωρινά.
+Η CHAMPMINIONS ενημερώθηκε για τον μεταξύ μας αγώνα.
+*/
 
 const standings = [
-{position:1, name:"CHAMPMINIONS", played:4, wins:4, draws:0, losses:0, points:12},
-{position:2, name:"LEGRENA FC", played:4, wins:4, draws:0, losses:0, points:12},
-{position:3, name:"UNATLETICO", played:4, wins:3, draws:1, losses:0, points:10},
-{position:4, name:"BLYZZ", played:4, wins:3, draws:0, losses:1, points:9},
-{position:5, name:"ΦΙΟΡΕΠΕΙΝΑ", played:4, wins:2, draws:1, losses:1, points:7},
-{position:6, name:"SAVRALLIOLID", played:4, wins:2, draws:0, losses:2, points:6},
-{position:7, name:"SHADOWS", played:5, wins:2, draws:0, losses:3, points:6},
-{position:8, name:"BLUE FISH", played:5, wins:1, draws:0, losses:4, points:3},
-{position:9, name:"ASTON VOULA B", played:3, wins:1, draws:0, losses:2, points:3},
-{position:10, name:"BUNKER PARTHENR", played:4, wins:1, draws:0, losses:3, points:3},
-{position:11, name:"GATES OF OLYMPUS", played:4, wins:0, draws:2, losses:2, points:2},
-{position:12, name:"ΦΛΑΠ FC", played:5, wins:0, draws:0, losses:5, points:0}
+{name:"LEGRENA FC",played:5,wins:5,draws:0,losses:0,goals:"20-12",points:15},
+{name:"CHAMPMINIONS",played:5,wins:4,draws:0,losses:1,goals:"—",points:12},
+{name:"UNATLETICO",played:4,wins:3,draws:1,losses:0,goals:"—",points:10},
+{name:"BLYZZ",played:4,wins:3,draws:0,losses:1,goals:"—",points:9},
+{name:"ΦΙΟΡΕΠΕΙΝΑ",played:4,wins:2,draws:1,losses:1,goals:"—",points:7},
+{name:"SAVRALLIOLID",played:4,wins:2,draws:0,losses:2,goals:"—",points:6},
+{name:"SHADOWS",played:5,wins:2,draws:0,losses:3,goals:"—",points:6},
+{name:"BLUE FISH",played:5,wins:1,draws:0,losses:4,goals:"—",points:3},
+{name:"ASTON VOULA B",played:3,wins:1,draws:0,losses:2,goals:"—",points:3},
+{name:"BUNKER PARTHENR",played:4,wins:1,draws:0,losses:3,goals:"—",points:3},
+{name:"GATES OF OLYMPUS",played:4,wins:0,draws:2,losses:2,goals:"—",points:2},
+{name:"ΦΛΑΠ FC",played:5,wins:0,draws:0,losses:5,goals:"—",points:0}
 ];
 
 /* SCORERS */
 
 const scorers = [
-{name:"Χατζηαντωνίου", goals:5},
-{name:"Μπαλτάς", goals:5},
-{name:"Μωραΐτης", goals:2},
-{name:"Χαχλάκης", goals:2},
-{name:"Γκούρας", goals:1},
-{name:"Σαρλάνης", goals:1},
-{name:"Νταρζάνος", goals:1}
+{name:"Χατζηαντωνίου",goals:7},
+{name:"Μπαλτάς",goals:6},
+{name:"Μωραΐτης",goals:2},
+{name:"Χαχλάκης",goals:2},
+{name:"Γκούρας",goals:1},
+{name:"Σαρλάνης",goals:1},
+{name:"Νταρζάνος",goals:1}
 ];
 
 /* DISPLAY ROSTER */
@@ -577,9 +401,9 @@ results.map(r => `
 /* DISPLAY STANDINGS */
 
 document.getElementById("standings-list").innerHTML =
-standings.map((t, i) => `
+standings.map((t,i) => `
 <tr class="${t.name === 'LEGRENA FC' ? 'highlight' : ''}">
-<td>${i + 1}</td>
+<td>${i+1}</td>
 <td>${t.name}</td>
 <td>${t.played}</td>
 <td>${t.wins}</td>
@@ -590,19 +414,16 @@ standings.map((t, i) => `
 </tr>
 `).join("");
 
-document.getElementById("standings-empty").textContent =
-standings.length === 0
-? "Η επίσημη βαθμολογία θα ενημερωθεί σύντομα."
-: "";
+document.getElementById("standings-empty").textContent = "";
 
 /* DISPLAY SCORERS */
 
-const sortedScorers = [...scorers].sort((a, b) => b.goals - a.goals);
+const sortedScorers = [...scorers].sort((a,b) => b.goals-a.goals);
 
 document.getElementById("scorers-list").innerHTML =
-sortedScorers.map((p, i) => `
+sortedScorers.map((p,i) => `
 <tr>
-<td>${i + 1}</td>
+<td>${i+1}</td>
 <td>${p.name}</td>
 <td>${p.goals}</td>
 </tr>
@@ -610,9 +431,9 @@ sortedScorers.map((p, i) => `
 
 /* DISPLAY NEWS */
 
-function renderNews() {
+function renderNews(){
 document.getElementById("news-list").innerHTML =
-newsArticles.map((article, index) => `
+newsArticles.map((article,index) => `
 <article class="news-card">
 <div class="news-category">${article.category}</div>
 <h3>${article.title}</h3>
@@ -627,7 +448,7 @@ newsArticles.map((article, index) => `
 
 /* OPEN ARTICLE */
 
-function openNews(index) {
+function openNews(index){
 const article = newsArticles[index];
 
 document.getElementById("news-full-content").innerHTML = `
@@ -643,20 +464,19 @@ document.getElementById("news-modal").classList.add("active");
 
 /* CLOSE ARTICLE */
 
-function closeNews() {
+function closeNews(){
 document.getElementById("news-modal").classList.remove("active");
 }
 
-document.getElementById("news-modal").addEventListener("click", function(event) {
-if (event.target === this) closeNews();
+document.getElementById("news-modal").addEventListener("click",function(event){
+if(event.target === this) closeNews();
 });
 
-/* INITIALIZE NEWS */
+/* INITIALIZE */
 
 renderNews();
 
 </script>
-
 </body>
 </html>
 
